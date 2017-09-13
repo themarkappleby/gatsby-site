@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
   query AboutQuery {
-    allContentfulPage {
+    allContentfulPage(filter:{title:{eq:"About"}}) {
       edges {
         node {
           title

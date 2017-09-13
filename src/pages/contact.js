@@ -2,8 +2,7 @@ import React from 'react'
 
 class ContactPage extends React.Component {
   render () {
-    const edges = this.props.data.allContentfulPage.edges
-    const page = edges[1].node
+    const page = this.props.data.contentfulPage
     return (
       <div>
         <h1>{page.title}</h1>
@@ -15,16 +14,11 @@ class ContactPage extends React.Component {
 
 export const pageQuery = graphql`
   query ContactQuery {
-    allContentfulPage {
-      edges {
-        node {
-          id
-          title
-          slug
-          info {
-            info
-          }
-        }
+    contentfulPage(title:{eq:"Contact"}) {
+      title
+      slug
+      info {
+        info
       }
     }
   }
